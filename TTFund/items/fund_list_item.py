@@ -19,9 +19,19 @@ class FundListItem(Item):
     __table_name__ = "fund_list"
 
     def __init__(self, *args, **kwargs):
+
         self.code = kwargs.get('code')
         self.establish_date = kwargs.get('establish_date')
-        # self.id = kwargs.get('id')
         self.name = kwargs.get('name')
         self.service_charge = kwargs.get('service_charge')
         self.type = kwargs.get('type')
+
+    def pre_to_db(self):
+        """
+        入库前的处理
+        """
+
+        self.code = self.code.strip() if self.code else self.code
+        self.name = self.name.strip() if self.name else self.name
+        self.service_charge = self.service_charge.strip() if self.service_charge else self.service_charge
+        self.type = self.type.strip() if self.type else self.type

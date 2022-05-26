@@ -12,7 +12,7 @@ from feapder.utils.custom_argparse import ArgumentParser
 
 
 def ttfund_all_spider():
-    ttfund_list.TtfundAll(thread_count=100).start()
+    ttfund_list.TtfundList(thread_count=100).start()
 
 
 # def _baidu_spider2():
